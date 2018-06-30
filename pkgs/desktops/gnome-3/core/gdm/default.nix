@@ -39,21 +39,9 @@ stdenv.mkDerivation rec {
 
   enableParallelBuilding = true;
 
-  # Disable Access Control because our X does not support FamilyServerInterpreted yet
-  patches = [ ./sessions_dir.patch
-              ./gdm-x-session_extra_args.patch
-              ./gdm-session-worker_xserver-path.patch
-              (fetchpatch{
-                name = "CVE-2018-14424_A.patch";
-                url = https://gitlab.gnome.org/GNOME/gdm/commit/6060db704a19b0db68f2e9e6a2d020c0c78b6bba.patch;
-                sha256 = "1wp6b61jwdm43m696rgxa5iz8v39vk4il5xr4zgsx8y1pxqwb8n6";
-              })
-              (fetchpatch{
-                name = "CVE-2018-14424_B.patch";
-                url = https://gitlab.gnome.org/GNOME/gdm/commit/765b306c364885dd89d47fe9fe8618ce6a467bc1.patch;
-                sha256 = "07sani5mbgv8cnwkddj15xg4r7f90d1rp8xxh1hnfwigrm1hm69d";
-              })
-             ];
+  # This patch also includes some hacks that allows running setupCommands, see
+  # nixos/modules/services/x11/display-managers/gdm.nix.
+  patches = [ ./gdm-hacks.patch ];
 
   postInstall = ''
     # Prevent “Could not parse desktop file orca-autostart.desktop or it references a not found TryExec binary”
