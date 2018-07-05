@@ -4356,8 +4356,8 @@
     github = "yurrriq";
     name = "Eric Bailey";
   };
-  z77z = {
-    email = "maggesi@math.unifi.it";
+  maggesi = {
+    email = "marco.maggesi@gmail.com";
     github = "maggesi";
     name = "Marco Maggesi";
   };
