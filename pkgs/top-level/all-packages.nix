@@ -16851,9 +16851,11 @@ with pkgs;
 
   planner = callPackage ../applications/office/planner { };
 
-  playonlinux = callPackage ../applications/misc/playonlinux {
-     stdenv = stdenv_32bit;
+  playonlinuxPackages = callPackage ../applications/misc/playonlinux {
+    stdenv = stdenv_32bit;
   };
+
+  playonlinux = playonlinuxPackages.playonlinux-chrootenv;
 
   polybar = callPackage ../applications/misc/polybar { };
 
