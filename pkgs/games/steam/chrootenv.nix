@@ -177,6 +177,15 @@ in buildFHSUserEnv rec {
   '';
 
   profile = ''
+    # Temporary workaround to fix the new friends list when using Australian
+    # timezones.
+    #
+    # Note: This only seems to work when launching steam "from the command line".
+    #       The desktop shortcut seems to fail.
+    #
+    # See: https://github.com/NixOS/nixpkgs/issues/44254
+    export TZ=UTC
+
     export STEAM_RUNTIME=${if nativeOnly then "0" else "/steamrt"}
   '';
 
