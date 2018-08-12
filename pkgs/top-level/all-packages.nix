@@ -21086,4 +21086,6 @@ with pkgs;
   simplehttp2server = callPackage ../servers/simplehttp2server { };
 
   diceware = callPackage ../tools/security/diceware { };
+
+  undervolt = callPackage ../os-specific/linux/undervolt { };
 }
