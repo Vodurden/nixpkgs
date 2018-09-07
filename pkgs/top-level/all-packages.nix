@@ -14293,6 +14293,8 @@ with pkgs;
 
   libertinus = callPackage ../data/fonts/libertinus { };
 
+  libratbag = callPackage ../os-specific/linux/libratbag { };
+
   libre-baskerville = callPackage ../data/fonts/libre-baskerville { };
 
   libre-bodoni = callPackage ../data/fonts/libre-bodoni { };
