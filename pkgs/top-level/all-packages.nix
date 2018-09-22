@@ -21090,4 +21090,6 @@ with pkgs;
   diceware = callPackage ../tools/security/diceware { };
 
   undervolt = callPackage ../os-specific/linux/undervolt { };
+
+  mudfish = callPackage ../tools/networking/mudfish { };
 }
